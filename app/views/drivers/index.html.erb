@@ -1,0 +1,24 @@
+<h1>Drivers#index</h1>
+
+<ul>
+  <% @drivers.each do |driver| %>
+    <li>
+      <%= driver.name %>
+      <% if driver.license.present? %>
+        -
+        <%= driver.license.state %>
+        <%= driver.license.number %>
+      <% end %>
+      <%= link_to 'Delete', driver_path(driver), method: :delete, data: { confirm: 'Are you sure?' }%>
+    </li>
+
+
+
+  <% end %>
+</ul>
+
+<%= link_to 'New Driver', new_driver_path %>
+
+
+
+method: :delete, data: { confirm: 'Are you sure?' }
